@@ -1,0 +1,50 @@
+{
+  "name": "slugcopy",
+  "version": "1.0.0",
+  "description": "Slugify strings and copy to clipboard",
+  "main": "cli.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "type": "module",
+  "bin": {
+    "slugcopy": "./cli.js"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imranpollob/slugcopy.git"
+  },
+  "keywords": [
+    "cli",
+    "slug",
+    "slugify",
+    "slugify-copy",
+    "slugify-and-copy",
+    "url",
+    "urlify",
+    "urlify-copy",
+    "urlify-and-copy",
+    "decamelize",
+    "url",
+    "safe-url",
+    "url-safe"
+  ],
+  "author": "Imran Pollob",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imranpollob/slugcopy/issues"
+  },
+  "homepage": "https://github.com/imranpollob/slugcopy#readme",
+  "dependencies": {
+    "@sindresorhus/slugify": "^2.2.1",
+    "copy-paste": "^1.5.3",
+    "meow": "^13.2.0"
+  },
+  "devDependencies": {
+    "ava": "^6.1.3",
+    "execa": "^9.2.0"
+  }
+}
