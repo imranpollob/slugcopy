@@ -13,6 +13,7 @@ const cli = meow(
 	  --no-lowercase                 Don’t make the slug lowercase [Default: true]
 	  --no-decamelize                Don’t convert camelCase to separate words [Default: true]
 	  --preserve-leading-underscore  If your string starts with an underscore, it will be preserved in the slugified string [Default: false]
+    --no-copy                      Don't copy the slug to the clipboard [Default: false]
 
 	Examples
 	  $ slugcopy Déjà Vu!
@@ -38,6 +39,10 @@ const cli = meow(
         type: "boolean",
         default: false,
       },
+      copy: {
+        type: "boolean",
+        default: true,
+      },
     },
   }
 );
@@ -47,6 +52,8 @@ const output = slugify(text, cli.flags);
 
 console.log(output);
 
-cp.copy(output, function () {
-  console.log("Copied to clipboard");
-});
+if (cli.flags.copy) {
+  cp.copy(output, function () {
+    console.log("Copied to clipboard");
+  });
+}
