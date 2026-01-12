@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import meow from "meow";
 import slugify from "@sindresorhus/slugify";
-import cp from "copy-paste";
+import clipboardy from "clipboardy";
 
 const cli = meow(
   `
@@ -47,13 +47,16 @@ const cli = meow(
   }
 );
 
+if (cli.input.length === 0) {
+  cli.showHelp();
+}
+
 const text = cli.input.join(" ");
 const output = slugify(text, cli.flags);
 
 console.log(output);
 
 if (cli.flags.copy) {
-  cp.copy(output, function () {
-    console.log("Copied to clipboard");
-  });
+  clipboardy.writeSync(output);
+  console.log("Copied to clipboard");
 }
