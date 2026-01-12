@@ -1,6 +1,6 @@
 {
   "name": "slugcopy",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Slugify strings and copy to clipboard",
   "main": "cli.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "type": "module",
   "bin": {
-    "slugcopy": "./cli.js"
+    "slugcopy": "cli.js"
   },
   "engines": {
     "node": ">=18"
