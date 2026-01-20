@@ -100,3 +100,23 @@ test('mixed case with numbers', async t => {
 	const { stdout } = await execa('./cli.js', ['iPhone15Pro', '--no-decamelize']);
 	t.is(stdout.split("\n")[0], 'iphone15pro');
 });
+
+test('newlines', async t => {
+	const { stdout } = await execa('./cli.js', ['Line 1\nLine 2\nLine 3']);
+	t.is(stdout.split("\n")[0], 'line-1-line-2-line-3');
+});
+
+test('tabs', async t => {
+	const { stdout } = await execa('./cli.js', ['Column\tA\tColumn\tB']);
+	t.is(stdout.split("\n")[0], 'column-a-column-b');
+});
+
+test('carriage returns', async t => {
+	const { stdout } = await execa('./cli.js', ['Carriage\rReturn\rTest']);
+	t.is(stdout.split("\n")[0], 'carriage-return-test');
+});
+
+test('mixed whitespace characters', async t => {
+	const { stdout } = await execa('./cli.js', ['Mix\n\tOf   \rWhitespace']);
+	t.is(stdout.split("\n")[0], 'mix-of-whitespace');
+});
