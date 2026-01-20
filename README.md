@@ -13,6 +13,7 @@
 - 🛠 **Customizable**: Choose your separator, handle camelCase, and more.
 - 📦 **Modern**: Built with modern Node.js standards.
 - 🌐 **International**: Handles special characters (e.g., `Déjà Vu!` -> `deja-vu`).
+- ✅ **Comprehensive**: Handles edge cases like parentheses, brackets, quotes, newlines, and more.
 
 ## Install
 
@@ -59,6 +60,18 @@ $ slugcopy "Like a Boss" --no-lowercase --separator='_'
 $ slugcopy "Just Print This" --no-copy
 # Output: just-print-this
 # Clipboard: (unchanged)
+```
+
+## Important Notes
+
+**Shell Special Characters**: When using shell special characters (parentheses, brackets, quotes, etc.), always wrap your input in quotes:
+
+```bash
+# ✅ Correct - wrapped in quotes
+$ slugcopy "Text with (parentheses) and [brackets]"
+
+# ❌ Incorrect - will cause shell parsing errors
+$ slugcopy Text with (parentheses) and [brackets]
 ```
 
 ## Related
